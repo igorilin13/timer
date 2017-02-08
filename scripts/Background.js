@@ -7,7 +7,7 @@ function Background() {
 
     this.numberOfBgs = [3, 0, 0]; //number of backgrounds by background modes. //TODO
 
-    this.bgNames = []; //two-dimensional. separate lists for each modes.
+    this.bgNames = []; //two-dimensional. separate list for each mode.
     //background name: mode-number.jpg. Example: 1-13.jpg
 
     this.currentMode = 0;
