@@ -23,23 +23,23 @@ class BackgroundController {
 	}
 
 	showNextBackground() {
-	    this.currentIndexByMode[this.currentMode]++;
+		this.currentIndexByMode[this.currentMode]++;
 
-	    if (this.currentIndexByMode[this.currentMode] >= this.backgroundsByMode[this.currentMode]) {
-	        this.currentIndexByMode[this.currentMode] = 0;
-	    }
+		if (this.currentIndexByMode[this.currentMode] >= this.backgroundsByMode[this.currentMode]) {
+			this.currentIndexByMode[this.currentMode] = 0;
+		}
 
-    	this.updateUiBackground();
+		this.updateUiBackground();
 	}
 
 	showPrevBackground() {
-	    this.currentIndexByMode[this.currentMode]--;
+		this.currentIndexByMode[this.currentMode]--;
 
-	    if (this.currentIndexByMode[this.currentMode] < 0) {
-	        this.currentIndexByMode[this.currentMode] = this.backgroundsByMode[this.currentMode] - 1;
-	    }
+		if (this.currentIndexByMode[this.currentMode] < 0) {
+			this.currentIndexByMode[this.currentMode] = this.backgroundsByMode[this.currentMode] - 1;
+		}
 
-	    this.updateUiBackground();
+		this.updateUiBackground();
 	}
 
 	updateUiBackground() {
@@ -53,26 +53,26 @@ class BackgroundController {
 	}
 
 	changeMode(newMode) {
-	    if (newMode == this.currentMode) {
-	        return;
-	    }
+		if (newMode == this.currentMode) {
+			return;
+		}
 
-	    $("[data-" + UiConstants.DATA_MODE + "=" + this.currentMode + "]").removeClass(UiConstants.CLASS_SELECTED_OPTION);
-	    $("[data-" + UiConstants.DATA_MODE + "=" + newMode + "]").addClass(UiConstants.CLASS_SELECTED_OPTION);
+		$("[data-" + UiConstants.DATA_MODE + "=" + this.currentMode + "]").removeClass(UiConstants.CLASS_SELECTED_OPTION);
+		$("[data-" + UiConstants.DATA_MODE + "=" + newMode + "]").addClass(UiConstants.CLASS_SELECTED_OPTION);
 
-	    this.currentMode = newMode;
-	    this.updateUiBackground();
+		this.currentMode = newMode;
+		this.updateUiBackground();
 	}
 
 	toggleSlideShow() {
-	    if (this.slideshowTimerId != null) {
-	        clearInterval(this.slideshowTimerId);
-	        this.slideshowTimerId = null;
-	        UiConstants.ELEMENT_SET_SLIDESHOW.removeClass(UiConstants.CLASS_SELECTED_OPTION);
-	    } else {
-	        this.slideshowTimerId = setInterval(this.showNextBackground.bind(this), this.SLIDESHOW_LENGTH_MILLIS);
-	        UiConstants.ELEMENT_SET_SLIDESHOW.addClass(UiConstants.CLASS_SELECTED_OPTION);
-	    }
+		if (this.slideshowTimerId != null) {
+			clearInterval(this.slideshowTimerId);
+			this.slideshowTimerId = null;
+			UiConstants.ELEMENT_SET_SLIDESHOW.removeClass(UiConstants.CLASS_SELECTED_OPTION);
+		} else {
+			this.slideshowTimerId = setInterval(this.showNextBackground.bind(this), this.SLIDESHOW_LENGTH_MILLIS);
+			UiConstants.ELEMENT_SET_SLIDESHOW.addClass(UiConstants.CLASS_SELECTED_OPTION);
+		}
 	}
 
 	setSlideShow(mode) {
