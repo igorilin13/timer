@@ -6,10 +6,16 @@
 		<title>Timer</title>
 		<link rel="stylesheet" type="text/css" href="styles/reset.css">
 		<link rel="stylesheet" type="text/css" href="styles/main.css">
-		<script src="scripts/jquery-3.1.1.min.js" type="text/javascript"></script>
-		<script src="scripts/Main.js"></script>
+		<script src="scripts/jquery-3.2.1.min.js" type="text/javascript"></script>
+		<script src="scripts/UiConstants.js"></script>
+		<script src="scripts/Utils.js"></script>
+		<script src="scripts/BaseTimeTask.js"></script>
 		<script src="scripts/Timer.js"></script>
-		<script src="scripts/Background.js"></script>
+		<script src="scripts/Clock.js"></script>
+		<script src="scripts/TimerController.js"></script>
+		<script src="scripts/BackgroundList.js"></script>
+		<script src="scripts/BackgroundController.js"></script>
+		<script src="scripts/Main.js"></script>
 	</head>
 	
 	<body>
@@ -20,9 +26,9 @@
 					<div class="popupHeader" data-popupId="0">Timer settings</div>
 					<div class="popupContent" data-popupId="0">
 						<div>
-							<input type="text" value="8" id="newTimerHours">
-							<input type="text" value="0" id="newTimerMinutes">
-							<input type="text" value="0" id="newTimerSeconds">
+							<input type="text" value="8" id="setHours">
+							<input type="text" value="0" id="setMinutes">
+							<input type="text" value="0" id="setSeconds">
 							<input type="submit" value="New Timer" id="submitNewTimer">
 						</div>
 						<div>
@@ -35,31 +41,31 @@
 				<div class="popup bgSettings">
 					<div class="popupHeader" data-popupId="1">Background</div>
 					<div class="popupContent" data-popupId="1">
-						<span id="showPrevWallpaper">Prev</span>
-						<span id="showNextWallpaper">Next</span>
-						<span class="bgMode selectedOption" data-modeId="0" id="bgMode0">1</span>
-						<span class="bgMode" data-modeId="1" id="bgMode1">2</span>
-						<span class="bgMode" data-modeId="2" id="bgMode2">3</span>
+						<span id="showPrevBackground">Prev</span>
+						<span id="showNextBackground">Next</span>
+						<span class="bgMode selectedOption" data-modeId="0">1</span>
+						<span class="bgMode" data-modeId="1">2</span>
+						<span class="bgMode" data-modeId="2">3</span>
 						<span id="setSlideShow">SS</span>
 					</div>
 				</div>
 			</aside>
 
 			<div>
-				<div id="timerNotification">Timer will pause in <span id="breakTimeLeft">600</span> seconds. Options: <span id="cancelBreak">Cancel</span> | <span id="abortBreak">Abort</span></div>
+				<div id="timerNotification">Timer will pause in <span id="breakTimer">00:00:00</span>. Options: <span id="cancelBreak">Cancel</span> | <span id="abortBreak">Abort</span></div>
 
 				<div class="timerInfo">
-					<span id="totalTime">Total: 08:00:00</span>
-					<span>End: <span id="endTime">--:--:--</span></span>
+					<span>Total: <span id="totalTime">08:00:00</span></span>
+					<span>End: <span id="endTimer">--:--:--</span></span>
 				</div>
 
-				<div id="timeLeftContainer">08:00:00</div>
+				<div id="mainTimer">08:00:00</div>
 
 				<div class="timerControl">
 					<span id="startTimer">start</span>
 					<span id="pauseTimer">pause</span>
 					<span id="resetTimer">reset</span>
-					<span id="timerBreakOption">take a break</span>
+					<span id="takeBreak">take a break</span>
 				</div>
 			</div>
 		</main>

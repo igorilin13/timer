@@ -28,7 +28,7 @@ main {
 	text-decoration: underline;
 }
 
-#timeLeftContainer {
+#mainTimer {
 	color: white;
 	font-size: 5em;
 	line-height: 85%;
@@ -46,7 +46,7 @@ main {
 	margin-right: 0;
 }
 
-.timerFinished {
+.finished {
 	color: #708090 !important;
 }
 
