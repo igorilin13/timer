@@ -1,6 +1,6 @@
 class TimerController {
 	constructor() {
-		this.BREAK_LENGTH_SECONDS = 5;
+		this.BREAK_LENGTH_SECONDS = 10 * 60;
 
 		this.mainTimer = new Timer(UiConstants.ELEMENT_MAIN_TIMER, (function() {
 			UiConstants.ELEMENT_MAIN_TIMER.addClass(UiConstants.CLASS_FINISHED);
@@ -80,7 +80,7 @@ class TimerController {
 			return;
 		}
 
-		this.mainTimer.updateTimer(this.breakTimer.getSecondsLeft());
+		this.mainTimer.updateTime(this.breakTimer.getSecondsLeft());
 		this.cancelBreak();
 		this.pause();
 	}
