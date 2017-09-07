@@ -95,7 +95,7 @@ class TimerController {
 	addSeconds(seconds) {
 		if (seconds) {
 			this.mainTimer.updateTime(-seconds);
-			this.startNewEndClock();
+			this.mainTimerEndClock.updateTime(seconds);
 		}
 	} 
 }
